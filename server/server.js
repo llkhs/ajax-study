@@ -52,13 +52,22 @@ app.all('/timeout', (request, response) => {
  app.all('/server-jquery', (request, response) => {
      response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Headers', '*');
+    // JSON 数据打包
     const data = {name: 'llkhs'};
     response.send(JSON.stringify(data));
 
 });
 
+// axios
+app.all('/server-axios',(request, response)=>{
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Headers', '*');
+    // JSON 数据打包
+    const data = {name: 'llkhs', data : 'HELLO AJAX axios'};
+    response.send(JSON.stringify(data));
+})
 
-//监听
+// 监听
 app.listen(8000, ()=>{
     console.log("监听8000已启动......");
 })
