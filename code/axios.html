@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>    <title>axios</title>
+</head>
+<body>
+    <button>GET</button>
+    <button>POST</button>
+    <button>通用</button>
+
+    <script>
+        const btn0 = document.getElementsByTagName('button')[0];
+        const btn1 = document.getElementsByTagName('button')[1];
+        const btn2 = document.getElementsByTagName('button')[2];
+
+        const btns = document.querySelectorAll('button');
+
+       // axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+
+        btn0.onclick = function(){
+            axios.get('http://127.0.0.1:8000/server-axios', {
+                parame : {
+                    id : 12,
+                    data : 'sdsdf'
+                },
+                Headers : {
+                    name : 'request form axios moudle',
+                    flag : 1
+                }
+            }).then(value => {
+                console.log(value);
+            }) 
+        }
+
+        // btn1.onclick = function(){
+        //     axios.post('http://127.0.0.1:8000/server-axios', 
+        //     {
+        //         a : '12'
+        //     },
+        //     {
+        //         parame : 
+        //         {
+        //             pa : 'pa'
+        //         }
+        //     }).then(value => {
+        //         console.log(JSON.parse(value))
+        //     })
+        // }
+    
+
+        btn1.onclick = function () {
+                axios.post('http://127.0.0.1:8000/server-axios', {
+                    // 请求体
+                     username: 'admin',
+                    password: '123456'
+                }, {
+                    //url 请求行
+                     params: {
+                        id: 200,
+                        vip: 9
+                    },
+                    // 请求头参数
+                     headers: {
+                        height: 100,
+                        weight: 180,
+                    }
+                })
+            }
+
+
+    </script>
+
+</body>
+</html>
